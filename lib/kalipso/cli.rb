@@ -71,6 +71,7 @@ module Kalipso
       if name.present?
         puts "uploading #{name}"
         site = Site::Local.find_by_name(name)
+        path = site.path
       else
         path = File.expand_path(Dir.pwd)
         site = Site::Local.find_by_path(path)
