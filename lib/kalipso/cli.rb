@@ -2,7 +2,7 @@ module Kalipso
   class CLI < Thor
 
     desc "create", "add a site"
-    def create(name = nil)
+    def create(name = nil, path = nil)
       path = Dir.pwd
       if name.present?
         puts "Creating #{name} linked to #{path}"
@@ -10,7 +10,13 @@ module Kalipso
         puts "Creating a new site linked to #{path}"
       end
       begin
-        Site::Remote.create(:name => name)
+        remote_site = Site::Remote.create(:name => name)
+        path = path || File.expand_path("~/Sites/oncalypso/#{name}")
+        Site::Local.create({
+          :name => name,
+          :id => remote_site.id,
+          :path => path
+        })
         
       rescue RestClient::UnprocessableEntity
         puts "There was an error uploading your site"
