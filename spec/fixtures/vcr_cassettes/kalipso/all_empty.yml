@@ -1,0 +1,44 @@
+--- 
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :get
+    uri: http://test%40test.com:testtest@oncalypso.com:80/api/v1/sites
+    body: 
+    headers: 
+      accept: 
+      - application/json
+      accept-encoding: 
+      - gzip, deflate
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      x-ua-compatible: 
+      - IE=Edge,chrome=1
+      etag: 
+      - "\"d751713988987e9331980363e24189ce\""
+      x-varnish: 
+      - "264521256"
+      connection: 
+      - keep-alive
+      content-type: 
+      - application/json; charset=utf-8
+      via: 
+      - 1.1 varnish
+      server: 
+      - nginx/0.7.67
+      date: 
+      - Tue, 25 Jan 2011 22:39:37 GMT
+      x-runtime: 
+      - "0.145394"
+      content-length: 
+      - "2"
+      set-cookie: 
+      - _staticoku-controller_session=BAh7ByIPc2Vzc2lvbl9pZCIlZDM0N2QzZDdkN2MyMWM0ODg5OTIzNzc4MGYxZjA4YjQiGXdhcmRlbi51c2VyLnVzZXIua2V5WwciCVVzZXJpDA%3D%3D--1ad43a5ebe776456b239aaaacc46565690f9a640; path=/; HttpOnly
+      cache-control: 
+      - max-age=0, private, must-revalidate
+      age: 
+      - "0"
+    body: "[]"
+    http_version: "1.1"

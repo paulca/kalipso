@@ -1,0 +1,289 @@
+--- 
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :delete
+    uri: http://test%40test.com:testtest@oncalypso.com:80/api/v1/sites/39
+    body: 
+    headers: 
+      accept: 
+      - application/json
+      accept-encoding: 
+      - gzip, deflate
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 404
+      message: Not Found
+    headers: 
+      content-type: 
+      - text/html
+      connection: 
+      - keep-alive
+      x-runtime: 
+      - "0.011710"
+      date: 
+      - Tue, 25 Jan 2011 22:36:17 GMT
+      server: 
+      - nginx/0.7.67
+      content-length: 
+      - "728"
+    body: |
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>The page you were looking for doesn't exist (404)</title>
+        <style type="text/css">
+          body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
+          div.dialog {
+            width: 25em;
+            padding: 0 4em;
+            margin: 4em auto 0 auto;
+            border: 1px solid #ccc;
+            border-right-color: #999;
+            border-bottom-color: #999;
+          }
+          h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
+        </style>
+      </head>
+      
+      <body>
+        <!-- This file lives in public/404.html -->
+        <div class="dialog">
+          <h1>The page you were looking for doesn't exist.</h1>
+          <p>You may have mistyped the address or the page may have moved.</p>
+        </div>
+      </body>
+      </html>
+
+    http_version: "1.1"
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :delete
+    uri: http://test%40test.com:testtest@oncalypso.com:80/api/v1/sites/41
+    body: 
+    headers: 
+      accept: 
+      - application/json
+      accept-encoding: 
+      - gzip, deflate
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 404
+      message: Not Found
+    headers: 
+      content-type: 
+      - text/html
+      connection: 
+      - keep-alive
+      x-runtime: 
+      - "0.002208"
+      date: 
+      - Tue, 25 Jan 2011 22:39:53 GMT
+      server: 
+      - nginx/0.7.67
+      content-length: 
+      - "728"
+    body: |
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>The page you were looking for doesn't exist (404)</title>
+        <style type="text/css">
+          body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
+          div.dialog {
+            width: 25em;
+            padding: 0 4em;
+            margin: 4em auto 0 auto;
+            border: 1px solid #ccc;
+            border-right-color: #999;
+            border-bottom-color: #999;
+          }
+          h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
+        </style>
+      </head>
+      
+      <body>
+        <!-- This file lives in public/404.html -->
+        <div class="dialog">
+          <h1>The page you were looking for doesn't exist.</h1>
+          <p>You may have mistyped the address or the page may have moved.</p>
+        </div>
+      </body>
+      </html>
+
+    http_version: "1.1"
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :delete
+    uri: http://test%40test.com:testtest@oncalypso.com:80/api/v1/sites/42
+    body: 
+    headers: 
+      accept: 
+      - application/json
+      accept-encoding: 
+      - gzip, deflate
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      x-ua-compatible: 
+      - IE=Edge,chrome=1
+      etag: 
+      - "\"4a2deaa3929dca49cf4084cd2004e8fe\""
+      content-type: 
+      - application/json; charset=utf-8
+      connection: 
+      - keep-alive
+      x-runtime: 
+      - "2.809029"
+      date: 
+      - Tue, 25 Jan 2011 22:44:39 GMT
+      server: 
+      - nginx/0.7.67
+      content-encoding: 
+      - gzip
+      set-cookie: 
+      - _staticoku-controller_session=BAh7ByIPc2Vzc2lvbl9pZCIlY2UzNGI4NThmODcyNDk4YjI0OTdiYTFhNjFkNGEyMmYiGXdhcmRlbi51c2VyLnVzZXIua2V5WwciCVVzZXJpDA%3D%3D--6ceb4294eafc89fe673a855ebb75c2e92f57f8c1; path=/; HttpOnly
+      cache-control: 
+      - max-age=0, private, must-revalidate
+      transfer-encoding: 
+      - chunked
+    body: !binary |
+      H4sIAAAAAAAAA6pWKs4sSVWyqlbKS8wF0kol+UmpKak5qSWpKUo6SslFqYlA
+      VnxiCVDKyMDQUNfAUNfINMTIyMrExMrIMgqoprQghaCazBQlKxMjoNri1KJ4
+      EMe8thYAAAD//wMAV5BAUnsAAAA=
+
+    http_version: "1.1"
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :post
+    uri: http://test%40test.com:testtest@oncalypso.com:80/api/v1/sites
+    body: "{\"site\":{\"name\":\"tobedeleted\"}}"
+    headers: 
+      accept: 
+      - application/json
+      content-type: 
+      - application/json
+      accept-encoding: 
+      - gzip, deflate
+      content-length: 
+      - "31"
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      x-ua-compatible: 
+      - IE=Edge,chrome=1
+      etag: 
+      - "\"e883e85f4bda827dc2dd005969524a6b\""
+      connection: 
+      - keep-alive
+      content-type: 
+      - application/json; charset=utf-8
+      server: 
+      - nginx/0.7.67
+      date: 
+      - Tue, 25 Jan 2011 22:45:39 GMT
+      x-runtime: 
+      - "6.672314"
+      content-encoding: 
+      - gzip
+      set-cookie: 
+      - _staticoku-controller_session=BAh7ByIPc2Vzc2lvbl9pZCIlODkzOWE2ZjQwOGFiY2YwN2NmY2IyYmVkNTcyY2JkZDUiGXdhcmRlbi51c2VyLnVzZXIua2V5WwciCVVzZXJpDA%3D%3D--46c86fee4f0f04d351f3f047626147d2aa3f673f; path=/; HttpOnly
+      cache-control: 
+      - max-age=0, private, must-revalidate
+      transfer-encoding: 
+      - chunked
+    body: !binary |
+      H4sIAAAAAAAAA6pWKs4sSVWyqlbKS8wF0kol+UmpKak5qSWpKUo6SslFqYlA
+      VnxiCVDKyMDQUNfAUNfINMTIyMrE1MrYOAqoprQghaCazBQlKxNjoNri1KJ4
+      EMe8thYAAAD//wMAPpdCK3sAAAA=
+
+    http_version: "1.1"
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :delete
+    uri: http://test%40test.com:testtest@oncalypso.com:80/api/v1/sites/43
+    body: 
+    headers: 
+      accept: 
+      - application/json
+      accept-encoding: 
+      - gzip, deflate
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      x-ua-compatible: 
+      - IE=Edge,chrome=1
+      etag: 
+      - "\"e883e85f4bda827dc2dd005969524a6b\""
+      connection: 
+      - keep-alive
+      content-type: 
+      - application/json; charset=utf-8
+      server: 
+      - nginx/0.7.67
+      date: 
+      - Tue, 25 Jan 2011 22:45:42 GMT
+      x-runtime: 
+      - "2.516284"
+      content-encoding: 
+      - gzip
+      set-cookie: 
+      - _staticoku-controller_session=BAh7ByIPc2Vzc2lvbl9pZCIlNjA1MWJiNjIyNjQzYTc1YmE4M2ZkM2FkNDQ3YjdmZTAiGXdhcmRlbi51c2VyLnVzZXIua2V5WwciCVVzZXJpDA%3D%3D--5a7a0730bfa6812cfd02b563776ff9181ed8c04a; path=/; HttpOnly
+      cache-control: 
+      - max-age=0, private, must-revalidate
+      transfer-encoding: 
+      - chunked
+    body: !binary |
+      H4sIAAAAAAAAA6pWKs4sSVWyqlbKS8wF0kol+UmpKak5qSWpKUo6SslFqYlA
+      VnxiCVDKyMDQUNfAUNfINMTIyMrE1MrYOAqoprQghaCazBQlKxNjoNri1KJ4
+      EMe8thYAAAD//wMAPpdCK3sAAAA=
+
+    http_version: "1.1"
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :get
+    uri: http://test%40test.com:testtest@oncalypso.com:80/api/v1/sites
+    body: 
+    headers: 
+      accept: 
+      - application/json
+      accept-encoding: 
+      - gzip, deflate
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      x-ua-compatible: 
+      - IE=Edge,chrome=1
+      etag: 
+      - "\"d751713988987e9331980363e24189ce\""
+      x-varnish: 
+      - "264613780"
+      connection: 
+      - keep-alive
+      content-type: 
+      - application/json; charset=utf-8
+      via: 
+      - 1.1 varnish
+      server: 
+      - nginx/0.7.67
+      date: 
+      - Tue, 25 Jan 2011 22:45:43 GMT
+      x-runtime: 
+      - "0.110194"
+      content-length: 
+      - "2"
+      set-cookie: 
+      - _staticoku-controller_session=BAh7ByIPc2Vzc2lvbl9pZCIlMDNjYzg4N2RhNDZkODczMDk3YjVlZjcxYzg3YzBhYWIiGXdhcmRlbi51c2VyLnVzZXIua2V5WwciCVVzZXJpDA%3D%3D--7bfa0b61a2579c072319055b3f8c0f3acc6b3a77; path=/; HttpOnly
+      cache-control: 
+      - max-age=0, private, must-revalidate
+      age: 
+      - "0"
+    body: "[]"
+    http_version: "1.1"

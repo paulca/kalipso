@@ -1,0 +1,91 @@
+--- 
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :get
+    uri: http://test%40test.com:testtest@oncalypso.com:80/api/v1/sites/46
+    body: 
+    headers: 
+      accept: 
+      - application/json
+      accept-encoding: 
+      - gzip, deflate
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      x-ua-compatible: 
+      - IE=Edge,chrome=1
+      etag: 
+      - "\"8263627c51b918ab2a2b6fc3f96a4b57\""
+      x-varnish: 
+      - "1228353432"
+      connection: 
+      - keep-alive
+      content-type: 
+      - application/json; charset=utf-8
+      via: 
+      - 1.1 varnish
+      server: 
+      - nginx/0.7.67
+      date: 
+      - Tue, 25 Jan 2011 23:05:37 GMT
+      x-runtime: 
+      - "0.261195"
+      content-length: 
+      - "123"
+      set-cookie: 
+      - _staticoku-controller_session=BAh7ByIPc2Vzc2lvbl9pZCIlYjgzNjcwODY5YzI1Njk4N2VjNWMwYjZkZTUwNWE2NTgiGXdhcmRlbi51c2VyLnVzZXIua2V5WwciCVVzZXJpDA%3D%3D--010b21b614f4ab7d7e5ffaa07bbb6ad07fe8d1f3; path=/; HttpOnly
+      cache-control: 
+      - max-age=0, private, must-revalidate
+      age: 
+      - "0"
+    body: "{\"site\":{\"name\":\"anothersite\",\"created_at\":\"2011-01-25T23:01:46Z\",\"updated_at\":\"2011-01-25T23:01:46Z\",\"id\":46,\"user_id\":7}}"
+    http_version: "1.1"
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :put
+    uri: http://test%40test.com:testtest@oncalypso.com:80/api/v1/sites/46
+    body: "{\"site\":{\"name\":\"somethingelse\",\"created_at\":\"2011-01-25T23:01:46Z\",\"updated_at\":\"2011-01-25T23:01:46Z\",\"id\":46,\"user_id\":7}}"
+    headers: 
+      accept: 
+      - application/json
+      content-type: 
+      - application/json
+      accept-encoding: 
+      - gzip, deflate
+      content-length: 
+      - "125"
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      x-ua-compatible: 
+      - IE=Edge,chrome=1
+      etag: 
+      - "\"3ead23e34b0b2351d2eb4195c518646c\""
+      connection: 
+      - keep-alive
+      content-type: 
+      - application/json; charset=utf-8
+      server: 
+      - nginx/0.7.67
+      date: 
+      - Tue, 25 Jan 2011 23:05:43 GMT
+      x-runtime: 
+      - "5.731801"
+      content-encoding: 
+      - gzip
+      set-cookie: 
+      - _staticoku-controller_session=BAh7ByIPc2Vzc2lvbl9pZCIlYmUxZTY1MGRiYWE2YmI0ZmQ4NmVlYWUzZGYyNTQxZGQiGXdhcmRlbi51c2VyLnVzZXIua2V5WwciCVVzZXJpDA%3D%3D--8659b9a9bfd55b8a399ef9ca1afa087d593ce485; path=/; HttpOnly
+      cache-control: 
+      - max-age=0, private, must-revalidate
+      transfer-encoding: 
+      - chunked
+    body: !binary |
+      H4sIAAAAAAAAA6pWKs4sSVWyqlbKS8wF0krF+bmpJRmZeempOcWpSjpKyUWp
+      iSWpKfGJJUBJIwNDQ10DQ10j0xAjYysDQysTsyigmtKCFIJqMlOUgCyg2uLU
+      ongQx7y2FgAAAP//AwAVI4yGfQAAAA==
+
+    http_version: "1.1"
