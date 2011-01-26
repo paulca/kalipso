@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{kalipso}
-  s.version = "0.1.5"
+  s.version = "0.1.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Paul Campbell"]
@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
     "kalipso.gemspec",
     "lib/kalipso.rb",
     "lib/kalipso/cli.rb",
+    "lib/kalipso/public_key.rb",
     "lib/kalipso/site.rb"
   ]
   s.homepage = %q{http://github.com/paulca/kalipso}
