@@ -34,8 +34,16 @@ module Kalipso
     desc "link", "link a local path to a site"
     def link(site, path)
       site = Site::Local.find_by_name(site)
+      path = File.expand_path(path)
       site.update_attributes(:path => path)
-      puts "#{site.name} #{site.id} linked to #{path}"
+      puts "#{site.name} linked to #{path}"
+    end
+    
+    desc "unlink", "stop linking a local path to a site"
+    def unlink(site)
+      site = Site::Local.find_by_name(site)
+      site.update_attributes(:path => "")
+      puts "Site #{site.name} unlinked"
     end
     
     desc "store_dir", "show kalipso store dir"
@@ -62,9 +70,13 @@ module Kalipso
     def upload(name)
       puts "uploading #{name}"
       site = Site::Local.find_by_name(name)
-      puts "uploading #{site.path} to #{site.name}.diddlydum.com"
-      `rsync -arvH #{site.path.gsub(/\/+$/, '')}/ sites@diddlydum.com:/home/sites/#{site.name}`
-      puts "#{site.path} uploaded to http://#{site.name}.diddlydum.com"
+      if site.path.present?
+        puts "uploading #{site.path} to #{site.name}.diddlydum.com"
+        `rsync -arvH #{site.path.gsub(/\/+$/, '')}/ sites@diddlydum.com:/home/sites/#{site.name}`
+        puts "#{site.path} uploaded to http://#{site.name}.diddlydum.com"
+      else
+        puts "You need to link this site first"
+      end
     end
   end
 end

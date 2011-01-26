@@ -22,14 +22,14 @@ end
 Jaysus::Local.store_dir = "#{ENV['HOME']}/.kalipso"
 
 
-token_path = Pathname.new(Jaysus::Local.store_dir + '/token'))
+token_path = Pathname.new(Jaysus::Local.store_dir + '/token')
 
-if token_path.exists?
+if token_path.exist?
   token = token_path.read
 else
-  login = ask("Enter your email:  ") { |q| q.echo = true }
+  email = ask("Enter your email:  ") { |q| q.echo = true }
   password = ask("Enter your password:  ") { |q| q.echo = "*" }
-  token = ActiveSupport::JSON.decode(RestClient.get("http://oncalypso.com/api/v1/users.json"))['token']
+  token = ActiveSupport::JSON.decode(RestClient.get("http://#{CGI.escape(email)}:#{CGI.escape(password)}@oncalypso.com/api/v1/users.json"))['token']
   token_path.open('w') do |file|
     file.write token
   end
