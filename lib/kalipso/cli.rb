@@ -3,7 +3,7 @@ module Kalipso
 
     desc "create", "add a site"
     def create(name = nil)
-      path = File.expand_path(File.dirname($0))
+      path = Dir.pwd
       if name.present?
         puts "Creating #{name} linked to #{path}"
       else
@@ -72,7 +72,7 @@ module Kalipso
         puts "uploading #{name}"
         site = Site::Local.find_by_name(name)
       else
-        path = File.expand_path(File.dirname($0))
+        path = File.expand_path(Dir.pwd)
         site = Site::Local.find_by_path(path)
       end
       if site.present?
