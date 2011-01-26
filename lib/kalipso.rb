@@ -15,7 +15,7 @@ require 'pathname'
 require 'kalipso/site'
 
 # app
-Dir['app/*/*.rb'].each do |file|
+Dir[File.expand_path('app/*/*.rb', __FILE__)].each do |file|
   require file
 end
 
