@@ -67,6 +67,23 @@ module Kalipso
       end
     end
     
+    desc "fetch", "download a site and link to to a directory"
+    def fetch(name)
+      site = Site::Remote.find_by_name(name)
+      if site.present?
+        puts "fetching #{site.name}"
+        local_site = Site::Local.find_or_create_by_id(site.id)
+        path = File.expand_path("~/Sites/oncalypso/#{name}")
+        pathname = Pathname.new(path)
+        pathname.mkpath unless pathname.exist?
+        local_site.update_attributes(site.attributes.merge(:path => path))
+        `rsync -arvH sites@diddlydum.com:/home/sites/#{site.name}/ #{path.gsub(/\/+$/, '')}/`
+        puts "Site #{name} downloaded to #{path.gsub(/\/+$/, '')}"
+      else
+        "Site #{name} not found. Maybe try 'kalipso sync'"
+      end
+    end
+    
     desc "upload", "upload a path, eg. kalipso upload SITENAME PATH"
     def upload(name = nil)
       if name.present?
