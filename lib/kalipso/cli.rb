@@ -3,7 +3,7 @@ module Kalipso
 
     desc "create", "add a site"
     def create(name = nil)
-      path = File.expand_path(File.dirname(__FILE__))
+      path = File.expand_path(File.dirname($0))
       if name.present?
         puts "Creating #{name} linked to #{path}"
       else
@@ -67,15 +67,25 @@ module Kalipso
     end
     
     desc "upload", "upload a path, eg. kalipso upload SITENAME PATH"
-    def upload(name)
-      puts "uploading #{name}"
-      site = Site::Local.find_by_name(name)
-      if site.path.present?
-        puts "uploading #{site.path} to #{site.name}.diddlydum.com"
-        `rsync -arvH #{site.path.gsub(/\/+$/, '')}/ sites@diddlydum.com:/home/sites/#{site.name}`
-        puts "#{site.path} uploaded to http://#{site.name}.diddlydum.com"
+    def upload(name = nil)
+      if name.present?
+        puts "uploading #{name}"
+        site = Site::Local.find_by_name(name)
       else
-        puts "You need to link this site first"
+        path = File.expand_path(File.dirname($0))
+        site = Site::Local.find_by_path(path)
+      end
+      if site.present?
+        puts "uploading #{name} from #{path}"
+        if site.path.present?
+          puts "uploading #{site.path} to #{site.name}.diddlydum.com"
+          `rsync -arvH #{site.path.gsub(/\/+$/, '')}/ sites@diddlydum.com:/home/sites/#{site.name}`
+          puts "#{site.path} uploaded to http://#{site.name}.diddlydum.com"
+        else
+          puts "You need to link this site first"
+        end
+      else
+        puts "site not found with path #{path}"
       end
     end
   end
