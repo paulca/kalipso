@@ -11,6 +11,7 @@ module Kalipso
       end
       begin
         Site::Remote.create(:name => name)
+        
       rescue RestClient::UnprocessableEntity
         puts "There was an error uploading your site"
       end

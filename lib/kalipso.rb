@@ -20,6 +20,7 @@ Dir[File.expand_path('app/*/*.rb', __FILE__)].each do |file|
 end
 
 Jaysus::Local.store_dir = File.expand_path("~/.kalipso")
+Jaysus::Local.store_dir.mkpath unless Jaysus::Local.store_dir.exist?
 
 token_path = Jaysus::Local.store_dir.join('token')
 
