@@ -108,5 +108,10 @@ module Kalipso
         puts "site not found with path #{path}"
       end
     end
+    
+    desc "version", "print the version of the kalipso gem"
+    def version
+      puts File.read(File.expand_path('../../../VERSION', __FILE__))
+    end
   end
 end
