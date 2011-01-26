@@ -21,7 +21,7 @@ end
 
 Jaysus::Local.store_dir = File.expand_path("~/.kalipso")
 
-token_path = Pathname.new(Jaysus::Local.store_dir + '/token')
+token_path = Jaysus::Local.store_dir.join('token')
 
 if token_path.exist?
   token = token_path.read
