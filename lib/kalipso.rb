@@ -13,6 +13,7 @@ require 'pathname'
 
 # models
 require 'kalipso/site'
+require 'kalipso/public_key'
 
 # app
 Dir[File.expand_path('app/*/*.rb', __FILE__)].each do |file|
@@ -36,3 +37,13 @@ else
 end
 
 Jaysus::Remote.base_url = "http://#{token}:x@oncalypso.com/api/v1"
+
+if !Jaysus::Local.store_dir.join('keys').exist?
+  key_dir = Jaysus::Local.store_dir.join('keys')
+  key_dir.mkpath unless key_dir.exist?
+  key_path = key_dir.join('id_rsa')
+  public_key_path = key_dir.join('id_rsa.pub')
+  puts "generating and uploading public key"
+  `ssh-keygen -N '' -t rsa -q -f #{key_path.to_s.strip}`
+  Kalipso::PublicKey::Remote.create(:key => public_key_path.read)
+end
