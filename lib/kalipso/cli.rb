@@ -3,20 +3,21 @@ module Kalipso
 
     desc "create", "add a site"
     def create(name = nil, path = nil)
-      path = Dir.pwd
       if name.present?
-        puts "Creating #{name} linked to #{path}"
+        puts "Creating #{name}"
       else
-        puts "Creating a new site linked to #{path}"
+        puts "Creating a new site"
       end
       begin
         remote_site = Site::Remote.create(:name => name)
-        path = path || File.expand_path("~/Sites/oncalypso/#{name}")
+        path = path || File.expand_path("~/Sites/oncalypso/#{remote_site.name}")
         Site::Local.create({
           :name => remote_site.name,
           :id => remote_site.id,
           :path => path
         })
+        Pathname.new(path).mkpath unless Pathname.new(path).exist?
+        puts "Site #{remote_site.name} site created and linked to #{path}"
         
       rescue RestClient::UnprocessableEntity
         puts "There was an error uploading your site"
@@ -35,6 +36,20 @@ module Kalipso
           end
           puts out
         end
+      end
+    end
+    
+    desc "open", "open a site in browser"
+    def open(site = nil)
+      if site.present?
+        site = Site::Local.find_by_name(site)
+      else
+        site = Site::Local.find_by_path(Dir.pwd)
+      end
+      if site.present?
+        `open http://#{site.name}.oncalypso.com`
+      else
+        puts "Could not find site"
       end
     end
     
