@@ -13,7 +13,7 @@ module Kalipso
         remote_site = Site::Remote.create(:name => name)
         path = path || File.expand_path("~/Sites/oncalypso/#{name}")
         Site::Local.create({
-          :name => name,
+          :name => remote_site.name,
           :id => remote_site.id,
           :path => path
         })
