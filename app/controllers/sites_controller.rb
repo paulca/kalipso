@@ -8,7 +8,7 @@ class SitesController
   
   def create
     site = Site::Remote.create(params[:site])
-    puts "Site #{site.name} created at http://#{site.name}.diddlydum.com"
+    puts "Site #{site.name} created at http://#{site.name}.oncalypso.com"
   end
 
 end

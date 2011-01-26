@@ -32,9 +32,9 @@ module Kalipso
     end
     
     desc "link", "link a local path to a site"
-    def link(site, path)
+    def link(site, path = nil)
       site = Site::Local.find_by_name(site)
-      path = File.expand_path(path)
+      path = path.present? ? File.expand_path(path) : Dir.pwd
       site.update_attributes(:path => path)
       puts "#{site.name} linked to #{path}"
     end
@@ -79,9 +79,9 @@ module Kalipso
       if site.present?
         puts "uploading #{name} from #{path}"
         if site.path.present?
-          puts "uploading #{site.path} to #{site.name}.diddlydum.com"
+          puts "uploading #{site.path} to #{site.name}.oncalypso.com"
           `rsync -arvH #{site.path.gsub(/\/+$/, '')}/ sites@diddlydum.com:/home/sites/#{site.name}`
-          puts "#{site.path} uploaded to http://#{site.name}.diddlydum.com"
+          puts "#{site.path} uploaded to http://#{site.name}.oncalypso.com"
         else
           puts "You need to link this site first"
         end
