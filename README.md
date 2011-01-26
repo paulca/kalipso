@@ -2,36 +2,38 @@
 
 Command line client and library for uploading sites to Kalipso.
 
+## Installation ##
 
-## Basic setup ##
+    gem install kalipso
 
-Add a folder as a Kalipso site:
+## Basic usage ##
 
-    $ cd Sites/my_site
-    $ kalipso sites:add .
+List your kalipso sites:
+
+    $ kalipso sites
+
+Add a site:
+
+    $ kalipso add
 
 (this will auto-assign a site name)
 
 Or specify a name:
 
-    $ kalipso sites:add . --name my_site
+    $ kalipso add my_site
 
 This will add the site to your account on Kalipso.
 
-## Listing your sites ##
+Link a site to a local directory:
 
-List your sites
+    $ kalipso link my_site .
 
-    $ kalipso sites
-    SITENAME => /path/to/local
+Upload a site:
 
-## Uploading a site ##
-
-    $ kalipso upload SITENAME
-    http://SITENAME.diddlydum.com
+    $ kalipso upload my_site
 
 
-== Copyright
+#### Copyright ####
 
 Copyright (c) 2011 Paul Campbell. See LICENSE.txt for
 further details.

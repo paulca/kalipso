@@ -3,7 +3,7 @@ source "http://rubygems.org"
 # Example:
 #   gem "activesupport", ">= 2.3.5"
 
-gem 'jaysus', :path => '/Users/paul/Sites/gems/jaysus/jaysus'
+gem 'jaysus', '~>0.1.4'
 gem "thor"
 gem "highline"
 
