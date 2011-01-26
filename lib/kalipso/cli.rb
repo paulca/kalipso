@@ -1,6 +1,20 @@
 module Kalipso
   class CLI < Thor
 
+    desc "path", "print linked path for a site"
+    def path(name)
+      site = Site::Local.find_by_name(name)
+      if site.present?
+        if site.path.present?
+          puts site.path
+        else
+          puts "Path not present. You need to link this site to a path."
+        end
+      else
+        puts "Could not find site #{name}"
+      end
+    end
+
     desc "create", "add a site"
     def create(name = nil, path = nil)
       if name.present?
