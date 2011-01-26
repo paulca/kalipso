@@ -19,8 +19,7 @@ Dir['app/*/*.rb'].each do |file|
   require file
 end
 
-Jaysus::Local.store_dir = "#{ENV['HOME']}/.kalipso"
-
+Jaysus::Local.store_dir = File.expand_path("~/.kalipso")
 
 token_path = Pathname.new(Jaysus::Local.store_dir + '/token')
 
