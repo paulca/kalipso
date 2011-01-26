@@ -49,7 +49,7 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<jaysus>, [">= 0"])
+      s.add_runtime_dependency(%q<jaysus>, ["~> 0.1.4"])
       s.add_runtime_dependency(%q<thor>, [">= 0"])
       s.add_runtime_dependency(%q<highline>, [">= 0"])
       s.add_development_dependency(%q<rspec>, ["~> 2.3.0"])
@@ -59,7 +59,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<vcr>, ["= 1.5.1"])
       s.add_development_dependency(%q<webmock>, ["= 1.6.2"])
     else
-      s.add_dependency(%q<jaysus>, [">= 0"])
+      s.add_dependency(%q<jaysus>, ["~> 0.1.4"])
       s.add_dependency(%q<thor>, [">= 0"])
       s.add_dependency(%q<highline>, [">= 0"])
       s.add_dependency(%q<rspec>, ["~> 2.3.0"])
@@ -70,7 +70,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<webmock>, ["= 1.6.2"])
     end
   else
-    s.add_dependency(%q<jaysus>, [">= 0"])
+    s.add_dependency(%q<jaysus>, ["~> 0.1.4"])
     s.add_dependency(%q<thor>, [">= 0"])
     s.add_dependency(%q<highline>, [">= 0"])
     s.add_dependency(%q<rspec>, ["~> 2.3.0"])
