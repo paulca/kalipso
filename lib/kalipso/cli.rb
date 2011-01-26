@@ -111,7 +111,9 @@ module Kalipso
         path = File.expand_path("~/Sites/oncalypso/#{name}")
         pathname = Pathname.new(path)
         pathname.mkpath unless pathname.exist?
-        local_site.update_attributes(site.attributes.merge(:path => path))
+        local_site.name = site.name
+        local_site.path = path
+        local_site.save
         `rsync -arvH -e "ssh -i #{Jaysus::Local.store_dir.join('keys', 'id_rsa')}" sites@diddlydum.com:/home/sites/#{site.name}/ #{path.gsub(/\/+$/, '')}/`
         puts "Site #{name} downloaded to #{path.gsub(/\/+$/, '')}"
       else
