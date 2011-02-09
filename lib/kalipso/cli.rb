@@ -114,7 +114,7 @@ module Kalipso
         local_site.name = site.name
         local_site.path = path
         local_site.save
-        `rsync -arvH -e "ssh -i #{Jaysus::Local.store_dir.join('keys', 'id_rsa')}" sites@diddlydum.com:/home/sites/#{site.name}/ #{path.gsub(/\/+$/, '')}/`
+        `rsync -arvH -e "ssh -i #{Jaysus::Local.store_dir.join('keys', 'id_rsa')}" sites@calypsoapp.com:/home/sites/#{site.name}/ #{path.gsub(/\/+$/, '')}/`
         puts "Site #{name} downloaded to #{path.gsub(/\/+$/, '')}"
       else
         "Site #{name} not found. Maybe try 'kalipso sync'"
@@ -135,7 +135,7 @@ module Kalipso
         puts "uploading #{name} from #{path}"
         if site.path.present?
           puts "uploading #{site.path} to #{site.name}.oncalypso.com"
-          command = %Q[rsync -arvH -e "ssh -i #{Jaysus::Local.store_dir.join('keys', 'id_rsa')}" #{site.path.gsub(/\/+$/, '')}/ sites@diddlydum.com:/home/sites/#{site.name}]
+          command = %Q[rsync -arvH -e "ssh -i #{Jaysus::Local.store_dir.join('keys', 'id_rsa')}" #{site.path.gsub(/\/+$/, '')}/ sites@calypsoapp.com:/home/sites/#{site.name}]
           `#{command}`
           puts "#{site.path} uploaded to http://#{site.name}.oncalypso.com"
         else
