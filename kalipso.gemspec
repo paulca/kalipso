@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{kalipso}
-  s.version = "0.1.7"
+  s.version = "0.1.8"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Paul Campbell"]
-  s.date = %q{2011-01-26}
+  s.date = %q{2011-02-09}
   s.default_executable = %q{kalipso}
   s.description = %q{A full library for interactiing with your sites using kalipso}
   s.email = %q{paul@rslw.com}
@@ -37,7 +37,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/paulca/kalipso}
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.4.2}
+  s.rubygems_version = %q{1.5.0}
   s.summary = %q{Client library and command line client for kalipso}
   s.test_files = [
     "spec/kalipso_spec.rb",
